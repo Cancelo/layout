@@ -1,5 +1,87 @@
+/* Animations */
+#produccion {
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  background: #6fff74;
+  position: relative;
+  -webkit-animation: mymove3 1s;  /* Safari 4.0 - 8.0 */
+  -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+  animation: mymove3 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count:infinite;
+}
+
+/* Safari 4.0 - 8.0
+@-webkit-keyframes mymove {
+}
+*/
+
+@keyframes mymove {
+  0%   {width: 0%;}
+  100% {width: 100%;}
+}
+
+#flow2 {
+    width: 0%;
+    height: 9px;
+    background: #e65b5b;
+    border-radius: 0px 0px 20px 10px;
+    position: relative;
+    -webkit-animation: mymove2 1s;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove2 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count:infinite;
+}
+
+@keyframes mymove3 {
+0%   {top: 0px; opacity: 1;}
+100% {top: 0px; height: 100%;}
+}
+
+#almacen {
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  background: #5be660;
+  position: relative;
+  -webkit-animation: mymove3 1s;  /* Safari 4.0 - 8.0 */
+  -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+  animation: mymove3 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count:infinite;
+}
+
+@keyframes mymove3 {
+0%   {top: 0px; opacity: 1;}
+100% {top: 0px; height: 100%;}
+}
+
+#casa {
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+    background: #4b83cd;
+    position: relative;
+    -webkit-animation: mymove4 1.5s;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove4 1s;
+    animation-fill-mode: both;
+    animation-iteration-count:infinite;
+}
+
+@keyframes mymove4 {
+  0%   {top: 0px; height: 100%;}
+  100% {top: 0px; opacity: 1;}
+}
+
+
+/* STYLE */
 body {
   overflow-x: hidden;
+  background-color: #e4e5e6;
+  background-image: url("../img/aurora.png");
 }
 
 #logo {
@@ -7,6 +89,69 @@ body {
    filter: invert(1);
    }
 
+.indicador {
+  font-size: 0.8rem;
+}
+
+.cst-navbar {
+  background-color: white !important;
+  border-bottom: 1px solid #c2cfd6;
+}
+
+.cst-navbar-toggler {
+  border-radius: 0;
+  margin-left: 30px;
+  border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.cst-card-footer {
+  height: 25px;
+  padding: 0px;
+  border-radius: 0px !important;
+}
+
+.cst-out-p {
+  background-color: #4bcd50;
+}
+
+.cst-out-n {
+  background-color: #cd4b4b;
+}
+
+.cst-stop {
+  background-color: #cdc04b;
+}
+
+.cst-in {
+  background-color: #5b96e6;
+}
+
+.cst-card {
+  border-radius: 0;
+  margin-bottom: 20px;
+  background-color: rgba(125, 125, 125, 0.5) !important;
+}
+
+.cst-breadcrumb {
+  background-color: white;
+  border-bottom: 1px solid #c2cfd6;
+  border-radius: 0;
+}
+
+.nav-empresa {
+  line-height: 48px;
+  background-color: #1ba1e2;
+  color: white !important;
+}
+
+.empresa {
+  text-align: center;
+  text-indent: 0px !important;
+  border-bottom: 1px solid #25273d;
+}
+
+
+/* -- NAVBAR --*/
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
@@ -27,7 +172,8 @@ body {
   height: 100%;
   margin-left: -200px;
   overflow-y: auto;
-  background: #1c1b23;
+  background: #29363d;
+  border-right: 1px solid
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -40,15 +186,14 @@ body {
 
 #page-content-wrapper {
   width: 100%;
-  position: absolute;
+  /*position: absolute;*/
   padding: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
-  position: absolute;
+  /*position: absolute;*/
   margin-right: -200px;
 }
-
 
 /* Sidebar Styles */
 
@@ -63,7 +208,7 @@ body {
 
 .sidebar-nav li {
   text-indent: 20px;
-  line-height: 40px;
+  line-height: 42px;
 }
 
 .sidebar-nav li a {
@@ -75,7 +220,7 @@ body {
 .sidebar-nav li a:hover {
   text-decoration: none;
   color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+  background: #1ba1e2;
 }
 
 .sidebar-nav li a:active, .sidebar-nav li a:focus {
@@ -86,6 +231,8 @@ body {
   height: 65px;
   font-size: 18px;
   line-height: 60px;
+  text-align: center;
+  text-indent: 0px;
 }
 
 .sidebar-nav>.sidebar-brand a {
@@ -95,4 +242,20 @@ body {
 .sidebar-nav>.sidebar-brand a:hover {
   color: #fff;
   background: none;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+path.slice{
+	stroke-width:2px;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
 }

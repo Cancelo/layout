@@ -1,70 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Gigace</title>
 
-    <title>Gigace</title>
-
-    <!-- CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <!-- CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="vendor/jquery/jquery.min.js"></script>
 </head>
+
 <body>
-    <div id="wrapper">
-        <!-- SIDEBAR -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                      <!-- <img id="logo" src="../img/gigace.png" width="150" alt=""> -->
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Generación</a>
-                </li>
-                <li>
-                    <a href="#">Conexiones a red</a>
-                </li>
-                <li>
-                    <a href="#">Almacenamiento</a>
-                </li>
-                <li>
-                    <a href="#">Consumo</a>
-                </li>
-                <li>
-                    <a href="#">Notificaciones</a>
-                </li>
-                <li>
-                    <a href="#">Configuración</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- MAIN-->
-        <nav class="navbar sticky-top navbar navbar-light bg-light">
-          <a href="#menu-toggle" class="btn btn-outline-secondary" id="menu-toggle">
-            <span class="navbar-toggler-icon"></span>
-          </a>
-          <a class="navbar-brand" href="#"><img src="../img/gigace.png" height="30" alt=""></a>
-        </nav>
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-
-            </div>
-        </div>
-
+  <!-- NAVBAR-->
+  <nav class="navbar sticky-top navbar-light cst-navbar">
+    <div class="navbar-brand" href="#">
+      <img src="img/gigace.png" alt="" height="25">
+      <a href="#menu-toggle" class="navbar-toggler cst-navbar-toggler" id="menu-toggle">
+        <span class="navbar-toggler-icon cst-toggler-icon"></span>
+      </a>
     </div>
+  </nav>
+  <div id="wrapper">
+    <!-- SIDEBAR -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="empresa">
+          <a id="estado" class="nav-empresa" href="#">MI EMPRESA</a>
+        </li>
+        <li>
+          <a id="generacion" href="#">Generación</a>
+        </li>
+        <li>
+          <a id="conexiones" href="#">Conexiones a red</a>
+        </li>
+        <li>
+          <a href="#">Almacenamiento</a>
+        </li>
+        <li>
+          <a href="#">Consumo</a>
+        </li>
+        <li>
+          <a href="#">Notificaciones</a>
+        </li>
+        <li>
+          <a href="#">Configuración</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb cst-breadcrumb">
+      <li class="breadcrumb-item"></li>
+      <li class="breadcrumb-item active">Resumen</li>
+    </ol>
+    <!-- MAIN CONTENT-->
+    <div id="page-content-wrapper">
+      <div id="main-content" class="container">
+        <!-- Carga las páginas -->
 
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card cst-card text-white bg-primary">
+              <div class="card-body">
+                <div class="float-right">
+                  <p class="indicador">6 KW/h</p>
+                </div>
+                <h4 class="mb-0">Producción</h4>
+                <p>Generando</p>
+              </div>
+              <div class="chart-wrapper" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                  </div>
+                  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                  </div>
+                </div>
+                <canvas id="trend" class="chart chartjs-render-monitor" height="183" width="918" style="display: block; width: 350px; height: 70px;"></canvas>
+              </div>
+              <div class="card-footer cst-card-footer cst-out-p">
+                <div id="produccion"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card cst-card text-white bg-primary">
+              <div class="card-body">
+                <div class="float-right">
+                  <p class="indicador">4 KW/h</p>
+                </div>
+                <h4 class="mb-0">Red eléctrica</h4>
+                <p>Parado</p>
+              </div>
+              <div class="chart-wrapper" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                  </div>
+                  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                  </div>
+                </div>
+                <canvas id="trend" class="chart chartjs-render-monitor" height="183" width="918" style="display: block; width: 350px; height: 70px;"></canvas>
+              </div>
+              <div class="card-footer cst-card-footer cst-stop">
+                <div id=""></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card cst-card text-white bg-primary">
+              <div class="card-body">
+                <div class="float-right">
+                  <p class="indicador">65%</p>
+                </div>
+                <h4 class="mb-0">Almacén</h4>
+                <p>Alimentando</p>
+              </div>
+              <div class="chart-wrapper" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                  </div>
+                  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                  </div>
+                </div>
+                <canvas id="trend" class="chart chartjs-render-monitor" height="183" width="918" style="display: block; width: 350px; height: 70px;"></canvas>
+              </div>
+              <div class="card-footer cst-card-footer cst-out-p">
+                <div id="almacen"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card cst-card text-white bg-primary">
+              <div class="card-body">
+                <div class="float-right">
+                  <p class="indicador">6 KW/h</p>
+                </div>
+                <h4 class="mb-0">Casa</h4>
+                <p>Consumiendo</p>
+              </div>
+              <div class="chart-wrapper" style="height:70px;">
+                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                  </div>
+                  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                  </div>
+                </div>
+                <canvas id="trend" class="chart chartjs-render-monitor" height="183" width="918" style="display: block; width: 350px; height: 70px;"></canvas>
+              </div>
+              <div class="card-footer cst-card-footer cst-in">
+                <div id="casa"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FIN de página -->
+      </div>
+    </div>
     <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
 
+    <script type="text/javascript">
+      jQuery.fn.cargar = function(url) {
+        $(document).ready(function() {
+          $("#main-content").load(url);
+        });
+      };
 
+      $("#estado").click(function() {
+        $("#main-content").cargar("pages/main.html");
+      });
+      $("#generacion").click(function() {
+        $("#main-content").load("api/data1.php");
+      });
+    </script>
 </body>
 
 </html>
